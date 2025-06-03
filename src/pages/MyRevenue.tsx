@@ -48,7 +48,7 @@ const MyRevenue: React.FC = () => {
     setError('');
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await axios.get('http://localhost:3100/api/admin/transactions', {
+      const response = await axios.get('https://api.utpfund.live/api/admin/transactions', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

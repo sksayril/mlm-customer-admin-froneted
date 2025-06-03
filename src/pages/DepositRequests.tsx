@@ -16,7 +16,7 @@ const DepositRequests: React.FC = () => {
     setIsLoading(true);
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch('http://localhost:3100/api/admin/deposit-requests', {
+      const response = await fetch('https://api.utpfund.live/api/admin/deposit-requests', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -43,7 +43,7 @@ const DepositRequests: React.FC = () => {
   const handleApprove = async (id: string) => {
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:3100/api/admin/deposit-request/${id}/approve`, {
+      const response = await fetch(`https://api.utpfund.live/api/admin/deposit-request/${id}/approve`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -65,7 +65,7 @@ const DepositRequests: React.FC = () => {
   const handleReject = async (id: string) => {
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:3100/api/admin/deposit-request/${id}/rejected`, {
+      const response = await fetch(`https://api.utpfund.live/api/admin/deposit-request/${id}/rejected`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`

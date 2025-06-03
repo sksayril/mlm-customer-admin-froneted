@@ -123,7 +123,7 @@ const MyGames: React.FC = () => {
   };
 
   const api = axios.create({
-    baseURL: 'http://localhost:3100/api',
+    baseURL: 'https://api.utpfund.live/api',
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${getAuthToken()}`

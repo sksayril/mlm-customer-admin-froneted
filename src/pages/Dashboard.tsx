@@ -89,7 +89,7 @@ const Dashboard: React.FC = () => {
         }
         
         // Fetch dashboard stats
-        const statsResponse = await fetch('http://localhost:3100/api/admin/dashboard/stats', {
+        const statsResponse = await fetch('https://api.utpfund.live/api/admin/dashboard/stats', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         
@@ -102,7 +102,7 @@ const Dashboard: React.FC = () => {
         const statsData = await statsResponse.json();
         
         // Fetch financial overview
-        const financialResponse = await fetch('http://localhost:3100/api/admin/dashboard/financial-overview', {
+        const financialResponse = await fetch('https://api.utpfund.live/api/admin/dashboard/financial-overview', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         

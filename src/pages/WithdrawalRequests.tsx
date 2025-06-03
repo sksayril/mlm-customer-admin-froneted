@@ -42,7 +42,7 @@ const WithdrawalRequests: React.FC = () => {
     setError('');
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch('http://localhost:3100/api/admin/withdrawals', {
+      const response = await fetch('https://api.utpfund.live/api/admin/withdrawals', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -117,7 +117,7 @@ const WithdrawalRequests: React.FC = () => {
     setActionLoading(true);
     try {
       const token = localStorage.getItem('adminToken');
-      let url = `http://localhost:3100/api/admin/withdrawal/${actionId}/${actionType}`;
+      let url = `https://api.utpfund.live/api/admin/withdrawal/${actionId}/${actionType}`;
       let body: any = {};
       if (actionType === 'approve' && remarks) body.remarks = remarks;
       if (actionType === 'reject' && rejectReason) body.reason = rejectReason;

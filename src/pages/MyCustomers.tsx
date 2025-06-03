@@ -13,7 +13,7 @@ const MyCustomers: React.FC = () => {
     const fetchUsers = async () => {
       try {
         const token = localStorage.getItem('adminToken');
-        const response = await fetch('http://localhost:3100/api/admin/users', {
+        const response = await fetch('https://api.utpfund.live/api/admin/users', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
