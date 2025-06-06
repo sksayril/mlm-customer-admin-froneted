@@ -3,14 +3,28 @@ import { CreditCard, Filter, MoreHorizontal, Check, X, ExternalLink, RefreshCw, 
 
 interface Withdrawal {
   id: string;
-  userId: string;
-  userName: string;
+  userId: {
+    _id: string;
+    name: string;
+    email: string;
+  };
   userEmail: string;
+  userName: string;
   amount: number;
-  upiId: string;
+  withdrawalMethod: 'upi' | 'bank';
+  upiId?: string;
+  bankDetails?: {
+    accountNumber: string;
+    ifscCode: string;
+    accountName: string;
+  };
   status: string;
   remarks: string;
-  processedBy?: string | null;
+  processedBy?: {
+    _id: string;
+    name: string;
+    email: string;
+  } | null;
   processedAt?: string | null;
   createdAt: string;
 }
@@ -272,7 +286,7 @@ const WithdrawalRequests: React.FC = () => {
                   Amount
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  UPI ID
+                  Payment Details
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Date
@@ -306,7 +320,17 @@ const WithdrawalRequests: React.FC = () => {
                     <div className="text-sm font-medium text-gray-900">₹{request.amount}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                    {request.upiId}
+                    {request.withdrawalMethod === 'upi' ? (
+                      <div>
+                        <span className="font-medium">UPI ID:</span> {request.upiId}
+                      </div>
+                    ) : (
+                      <div className="space-y-1">
+                        <div><span className="font-medium">Account:</span> {request.bankDetails?.accountNumber}</div>
+                        <div><span className="font-medium">IFSC:</span> {request.bankDetails?.ifscCode}</div>
+                        <div><span className="font-medium">Name:</span> {request.bankDetails?.accountName}</div>
+                      </div>
+                    )}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     {new Date(request.createdAt).toLocaleDateString()}
