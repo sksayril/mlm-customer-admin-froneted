@@ -14,7 +14,7 @@ const Sidebar = () => {
   const menuItems = [
     { path: '/dashboard', name: 'Dashboard', icon: <LayoutDashboard size={20} /> },
     { path: '/customers', name: 'My Customers', icon: <Users size={20} /> },
-    { path: '/games', name: 'My Games', icon: <GamepadIcon size={20} /> },
+    // { path: '/games', name: 'My Games', icon: <GamepadIcon size={20} /> },
     { path: '/revenue', name: 'My Revenue', icon: <DollarSign size={20} /> },
     { path: '/deposit-requests', name: 'Deposit Requests', icon: <CreditCard size={20} /> },
     { path: '/withdrawal-requests', name: 'Withdrawal Requests', icon: <ArrowDownCircle size={20} /> },
